@@ -17,6 +17,7 @@ import java.util.Set;
 public class User extends BaseEntity {
 
     private String username;
+
     private String password;
 
     @ManyToMany
