@@ -1,0 +1,14 @@
+server:
+  port: 8888
+
+spring:
+  profiles:
+    active: ${PROFILE:dev}
+  jpa:
+    show-sql: ${SHOW_SQL:true}
+    hibernate:
+      ddl-auto: ${DDL_AUTO:none}
+
+app:
+  jwtSecret: ${SECRET:secret}
+  jwtAccessTokenExpirationMs: 600000 # 10 minutes
