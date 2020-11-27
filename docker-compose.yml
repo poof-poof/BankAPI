@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  server:
+    container_name: bank-server
+    build: .
+    depends_on:
+      - db
+    ports:
+      - 8888:8888
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+      DATABASE_NAME: foobank
+      DATABASE_PORT: 5432
+      LOGGING_LEVEL_ROOT: info
+    networks:
+      - bank-server
+  db:
+    container_name: bank-postgres-db
+    image: postgres:12
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: foobank
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - bank-server
+
+volumes:
+  pgdata:
+
+networks:
+  bank-server:
