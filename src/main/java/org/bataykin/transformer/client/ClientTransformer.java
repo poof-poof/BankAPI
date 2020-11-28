@@ -11,6 +11,7 @@ import org.mapstruct.Mapping;
 public interface ClientTransformer extends Transformer<Client, ClientDto> {
 
     @Override
+    @Mapping(target = "cardId", ignore = true)
     @Mapping(target = "fullName", ignore = true)
     @Mapping(target = "fullName.firstName", source = "firstName")
     @Mapping(target = "fullName.lastName", source = "lastName")

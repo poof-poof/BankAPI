@@ -22,4 +22,6 @@ public class Client extends BaseEntity {
     private String email;
 
     private Integer status;
+
+    private Long cardId;
 }

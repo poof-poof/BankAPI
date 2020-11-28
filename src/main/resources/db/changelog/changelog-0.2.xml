@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="27-11-2020-create-client-table" author="bataykin">
+        <createTable tableName="client">
+            <column autoIncrement="true" type="bigint" name="id">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column type="varchar(20)" name="first_name">
+                <constraints nullable="false"/>
+            </column>
+            <column type="varchar(20)" name="last_name">
+                <constraints nullable="false"/>
+            </column>
+            <column type="varchar(20)" name="middle_name">
+                <constraints nullable="false"/>
+            </column>
+            <column type="varchar(13)" name="phone_number">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column type="varchar(255)" name="email">
+                <constraints nullable="false"/>
+            </column>
+            <column type="smallint" name="status">
+                <constraints nullable="true"/>
+            </column>
+            <column type="bigint" name="card_id">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="27-11-2020-create-card-table" author="bataykin">
+        <createTable tableName="card">
+            <column autoIncrement="true" type="bigint" name="id">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column type="varchar(16)" name="number">
+                <constraints nullable="false"/>
+            </column>
+            <column type="varchar(5)" name="currency">
+                <constraints nullable="false"/>
+            </column>
+            <column type="smallint" name="type">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
