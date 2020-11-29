@@ -12,4 +12,4 @@ WORKDIR /app
 COPY --from=MAVEN_BUILD /build/target/BankAPI-1.0-SNAPSHOT.jar app.jar
 
 EXPOSE 8888
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "-DPROFILE=dev" ,"app.jar"]
